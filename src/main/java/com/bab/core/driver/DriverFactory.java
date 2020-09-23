@@ -32,4 +32,8 @@ public class DriverFactory {
         }
         webDriver.remove();
     }
+
+    public static WebDriver getDriver() {
+        return webDriver.get();
+    }
 }
