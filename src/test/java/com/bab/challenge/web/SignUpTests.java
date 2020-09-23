@@ -12,11 +12,6 @@ import java.util.UUID;
 
 public class SignUpTests extends BaseTest {
 
-    HomePage homePage;
-    AuthenticationPage authenticationPage;
-    AccountCreationPage accountCreationPage;
-    MyAccountPage myAccountPage;
-
     @BeforeMethod
     public void setUp() {
         super.setDriver();

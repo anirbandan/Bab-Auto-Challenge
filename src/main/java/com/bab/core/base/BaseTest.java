@@ -1,9 +1,18 @@
 package com.bab.core.base;
 
 import com.bab.core.driver.DriverFactory;
+import com.bab.domain.page_object.AccountCreationPage;
+import com.bab.domain.page_object.AuthenticationPage;
+import com.bab.domain.page_object.HomePage;
+import com.bab.domain.page_object.MyAccountPage;
 import org.testng.annotations.AfterMethod;
 
 public class BaseTest {
+
+    protected HomePage homePage;
+    protected AuthenticationPage authenticationPage;
+    protected AccountCreationPage accountCreationPage;
+    protected MyAccountPage myAccountPage;
 
     public void setDriver() {
         DriverFactory.setDriver("Chrome");
