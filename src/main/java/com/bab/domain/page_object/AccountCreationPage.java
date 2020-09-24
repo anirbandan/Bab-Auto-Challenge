@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.UUID;
 
-import static com.bab.core.driver.DriverFactory.getDriver;
+import static com.bab.core.driver.WebDriverFactory.getDriver;
 
 public class AccountCreationPage {
 

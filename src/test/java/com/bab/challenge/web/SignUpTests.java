@@ -1,6 +1,6 @@
 package com.bab.challenge.web;
 
-import com.bab.core.base.BaseTest;
+import com.bab.core.base.WebBase;
 import com.bab.domain.page_object.AccountCreationPage;
 import com.bab.domain.page_object.AuthenticationPage;
 import com.bab.domain.page_object.HomePage;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.UUID;
 
-public class SignUpTests extends BaseTest {
+public class SignUpTests extends WebBase {
 
     @BeforeMethod
     public void setUp() {

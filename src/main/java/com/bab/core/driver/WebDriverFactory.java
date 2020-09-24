@@ -1,5 +1,7 @@
 package com.bab.core.driver;
 
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,7 +12,7 @@ import java.util.function.Supplier;
 
 import static java.util.Objects.nonNull;
 
-public class DriverFactory {
+public class WebDriverFactory {
     static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     static final Map<String, Supplier<WebDriver>> driverMap = new HashMap<>();
     static final Supplier<WebDriver> chromeDriverSupplier = ChromeDriver::new;

@@ -16,6 +16,7 @@
         <selenium.version>3.141.59</selenium.version>
         <hamcrest.version>2.2</hamcrest.version>
         <testng.version>7.1.0</testng.version>
+        <appium.version>7.3.0</appium.version>
     </properties>
     <build>
         <plugins>
@@ -41,6 +42,11 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
             <version>${hamcrest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appium.version}</version>
         </dependency>
     </dependencies>
 </project>
