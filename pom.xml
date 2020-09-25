@@ -20,6 +20,8 @@
         <typesafe.config.version>1.4.0</typesafe.config.version>
         <maven-surefire.version>2.14.1</maven-surefire.version>
         <aspectj-weaver.version>1.9.6</aspectj-weaver.version>
+        <allure-testng.version>2.13.5</allure-testng.version>
+        <lombok.version>1.18.12</lombok.version>
         <suiteXmlFile>all-tests-suite.xml</suiteXmlFile>
     </properties>
     <build>
@@ -79,6 +81,17 @@
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
             <version>${typesafe.config.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

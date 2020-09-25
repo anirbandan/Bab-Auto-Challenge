@@ -1,15 +1,18 @@
 package com.bab.challenge.web;
 
+import com.bab.core.base.TestListener;
 import com.bab.core.base.WebBase;
 import com.bab.domain.page_object.web.AccountCreationPage;
 import com.bab.domain.page_object.web.AuthenticationPage;
 import com.bab.domain.page_object.web.HomePage;
 import com.bab.domain.page_object.web.MyAccountPage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.UUID;
 
+@Listeners({TestListener.class})
 public class SignUpTests extends WebBase {
 
     @BeforeMethod
