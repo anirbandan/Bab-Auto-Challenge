@@ -1,39 +1,38 @@
 package com.bab.core.driver;
 
+import com.bab.domain.helpers.AppParametersHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Supplier;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import static java.util.Objects.nonNull;
 
 public class WebDriverFactory {
-    static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
-    static final Map<String, Supplier<WebDriver>> driverMap = new HashMap<>();
-    static final Supplier<WebDriver> chromeDriverSupplier = ChromeDriver::new;
-    static final Supplier<WebDriver> firefoxDriverSupplier = FirefoxDriver::new;
-
-    static {
-        driverMap.put("Chrome", chromeDriverSupplier);
-        driverMap.put("Firefox", firefoxDriverSupplier);
-    }
+    static final ChromeOptions chromeOptions = new ChromeOptions();
+    static final FirefoxOptions firefoxOptions = new FirefoxOptions();
+    static WebDriver webDriver;
 
     public static void setDriver(String browserType) {
-        webDriver.set(driverMap.get(browserType).get());
-        webDriver.get().manage().window().maximize();
+        if (browserType.equalsIgnoreCase("chrome")) {
+            chromeOptions.setHeadless(AppParametersHelper.isHeadLess());
+            webDriver = new ChromeDriver(chromeOptions);
+        }
+        else if (browserType.equalsIgnoreCase("firefox")) {
+            firefoxOptions.setHeadless(AppParametersHelper.isHeadLess());
+            webDriver = new FirefoxDriver(firefoxOptions);
+        }
+        webDriver.manage().window().maximize();
     }
 
     public static void quitDriver() {
-        if (nonNull(webDriver.get())) {
-            webDriver.get().quit();
+        if (nonNull(webDriver)) {
+            webDriver.quit();
         }
-        webDriver.remove();
     }
 
     public static WebDriver getWebDriver() {
-        return webDriver.get();
+        return webDriver;
     }
 }
