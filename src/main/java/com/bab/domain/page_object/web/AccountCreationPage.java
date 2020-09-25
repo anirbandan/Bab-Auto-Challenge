@@ -1,5 +1,6 @@
 package com.bab.domain.page_object.web;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.UUID;
 
-import static com.bab.core.driver.WebDriverFactory.getDriver;
+import static com.bab.core.driver.WebDriverFactory.getWebDriver;
 
 public class AccountCreationPage {
 
@@ -35,9 +36,10 @@ public class AccountCreationPage {
     private WebDriverWait webDriverWait;
 
     public AccountCreationPage() {
-        webDriverWait = new WebDriverWait(getDriver(), 10, 30);
+        webDriverWait = new WebDriverWait(getWebDriver(), 10, 30);
     }
 
+    @Step("Fill personal information")
     public void fillOutPersonalInformation(String firstName, String lastName, String password, String day,
                                            String month, String year) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(mrsRadioButton)).click();
@@ -49,6 +51,7 @@ public class AccountCreationPage {
         new Select(webDriverWait.until(ExpectedConditions.presenceOfElementLocated(yearOfBirthSelector))).selectByValue(year);
     }
 
+    @Step("Fill address information")
     public void fillOutAddressInformation() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(companyField)).sendKeys(UUID.randomUUID().toString());
         webDriverWait.until(ExpectedConditions.elementToBeClickable(address1Field)).sendKeys("Address");
@@ -62,6 +65,7 @@ public class AccountCreationPage {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(aliasField)).sendKeys("alias");
     }
 
+    @Step("Click register button to create account")
     public void submitAccountCreation() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
     }

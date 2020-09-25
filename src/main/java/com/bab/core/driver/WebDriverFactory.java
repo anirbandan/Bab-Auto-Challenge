@@ -33,7 +33,7 @@ public class WebDriverFactory {
         webDriver.remove();
     }
 
-    public static WebDriver getDriver() {
+    public static WebDriver getWebDriver() {
         return webDriver.get();
     }
 }

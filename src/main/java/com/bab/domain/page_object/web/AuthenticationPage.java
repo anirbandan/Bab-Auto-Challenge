@@ -1,10 +1,11 @@
 package com.bab.domain.page_object.web;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.bab.core.driver.WebDriverFactory.getDriver;
+import static com.bab.core.driver.WebDriverFactory.getWebDriver;
 
 public class AuthenticationPage {
 
@@ -18,25 +19,30 @@ public class AuthenticationPage {
     private WebDriverWait webDriverWait;
 
     public AuthenticationPage() {
-        webDriverWait = new WebDriverWait(getDriver(), 10, 30);
+        webDriverWait = new WebDriverWait(getWebDriver(), 10, 30);
     }
 
+    @Step("Enter email to create an account")
     public void enterEmailForAccountCreation(String email) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(createAccountEmailField)).sendKeys(email);
     }
 
+    @Step("Click Create account button")
     public void submitEmailRegistration() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(createAccountButton)).click();
     }
 
+    @Step("Enter email to login")
     public void enterEmailForLogin(String email) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(emailField)).sendKeys(email);
     }
 
+    @Step("Enter password to login")
     public void enterPassword(String password) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(passwordField)).sendKeys(password);
     }
 
+    @Step("Submit login form")
     public void submitLoginForm() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(signInButton)).click();
     }
