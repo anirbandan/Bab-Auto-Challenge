@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MobileDriverFactory {
 
-    static AndroidDriver<MobileElement> driver;
+    static AndroidDriver<MobileElement> androidDriver;
     static AppiumDriverLocalService appiumService;
     static String appiumUrl;
 
@@ -20,12 +20,16 @@ public class MobileDriverFactory {
         appiumService = AppiumDriverLocalService.buildDefaultService();
         appiumService.start();
         appiumUrl = appiumService.getUrl().toString();
-        driver = new AndroidDriver<>(new URL(appiumUrl), capabilities);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        androidDriver = new AndroidDriver<>(new URL(appiumUrl), capabilities);
+        androidDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     public static void quitDriverAndStopAppium() {
-        driver.quit();
+        androidDriver.quit();
         appiumService.stop();
+    }
+
+    public static AndroidDriver getMobileDriver() {
+        return androidDriver;
     }
 }
