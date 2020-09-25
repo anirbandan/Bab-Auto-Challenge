@@ -1,13 +1,13 @@
 package com.bab.core.base;
 
-import com.bab.core.driver.DriverFactory;
-import com.bab.domain.page_object.AccountCreationPage;
-import com.bab.domain.page_object.AuthenticationPage;
-import com.bab.domain.page_object.HomePage;
-import com.bab.domain.page_object.MyAccountPage;
+import com.bab.core.driver.WebDriverFactory;
+import com.bab.domain.page_object.web.AccountCreationPage;
+import com.bab.domain.page_object.web.AuthenticationPage;
+import com.bab.domain.page_object.web.HomePage;
+import com.bab.domain.page_object.web.MyAccountPage;
 import org.testng.annotations.AfterMethod;
 
-public class BaseTest {
+public class WebBase {
 
     protected HomePage homePage;
     protected AuthenticationPage authenticationPage;
@@ -15,11 +15,11 @@ public class BaseTest {
     protected MyAccountPage myAccountPage;
 
     public void setDriver() {
-        DriverFactory.setDriver("Chrome");
+        WebDriverFactory.setDriver("Chrome");
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDownDriver() {
-        DriverFactory.quitDriver();
+        WebDriverFactory.quitDriver();
     }
 }

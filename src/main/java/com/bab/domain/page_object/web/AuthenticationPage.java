@@ -1,10 +1,10 @@
-package com.bab.domain.page_object;
+package com.bab.domain.page_object.web;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.bab.core.driver.DriverFactory.getDriver;
+import static com.bab.core.driver.WebDriverFactory.getDriver;
 
 public class AuthenticationPage {
 

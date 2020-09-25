@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 import static java.util.Objects.nonNull;
 
-public class DriverFactory {
+public class WebDriverFactory {
     static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     static final Map<String, Supplier<WebDriver>> driverMap = new HashMap<>();
     static final Supplier<WebDriver> chromeDriverSupplier = ChromeDriver::new;
