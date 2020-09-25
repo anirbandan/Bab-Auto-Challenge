@@ -1,0 +1,7 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Executing all test cases for project Bab-Auto">
+    <suite-files>
+        <suite-file path="web-tests-suite.xml"/>
+        <suite-file path="android-tests-suite.xml"/>
+    </suite-files>
+</suite>

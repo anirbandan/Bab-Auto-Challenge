@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Web tests for automationpractice.com">
+    <test name="Test case to verify user is able to sign up">
+        <classes>
+            <class name="com.bab.challenge.web.SignUpTests"/>
+        </classes>
+    </test>
+    <test name="Test case to verify user is able to login">
+        <classes>
+            <class name="com.bab.challenge.web.LoginTests"/>
+        </classes>
+    </test>
+</suite>

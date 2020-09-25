@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  name="Web tests for automationpractice.com" parallel = "classes" thread-count="3" data-provider-thread-count="6">
+    <test name="Parallel Execution of all test suits">
+        <classes>
+            <class name="com.bab.challenge.web.SignUpTests"/>
+            <class name="com.bab.challenge.web.LoginTests"/>
+            <class name="com.bab.challenge.android.LoginTests"/>
+        </classes>
+    </test>
+</suite>

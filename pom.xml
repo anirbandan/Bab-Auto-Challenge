@@ -17,6 +17,10 @@
         <hamcrest.version>2.2</hamcrest.version>
         <testng.version>7.1.0</testng.version>
         <appium.version>7.3.0</appium.version>
+        <typesafe.config.version>1.4.0</typesafe.config.version>
+        <maven-surefire.version>2.14.1</maven-surefire.version>
+        <aspectj-weaver.version>1.9.6</aspectj-weaver.version>
+        <suiteXmlFile>all-tests-suite.xml</suiteXmlFile>
     </properties>
     <build>
         <plugins>
@@ -24,6 +28,29 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire.version}</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testsuites/${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj-weaver.version}/aspectjweaver-${aspectj-weaver.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj-weaver.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -47,6 +74,11 @@
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>${appium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>${typesafe.config.version}</version>
         </dependency>
     </dependencies>
 </project>
