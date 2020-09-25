@@ -14,8 +14,8 @@ public class WebBase {
     protected AccountCreationPage accountCreationPage;
     protected MyAccountPage myAccountPage;
 
-    public void setDriver() {
-        WebDriverFactory.setDriver("Chrome");
+    public void setDriver(String browserType) {
+        WebDriverFactory.setDriver(browserType);
     }
 
     @AfterMethod(alwaysRun = true)

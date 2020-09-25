@@ -7,13 +7,16 @@ import com.bab.domain.page_object.web.HomePage;
 import com.bab.domain.page_object.web.MyAccountPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @Listeners({TestListener.class})
 public class LoginTests extends WebBase {
+
+    @Parameters("browser")
     @BeforeMethod
-    public void setUp() {
-        super.setDriver();
+    public void setUp(String browser) {
+        super.setDriver(browser);
         homePage = new HomePage();
         authenticationPage = new AuthenticationPage();
         myAccountPage = new MyAccountPage();
