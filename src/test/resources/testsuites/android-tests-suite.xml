@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Android tests for QA application">
+    <test name="Test case to verify user is able to login">
+        <classes>
+            <class name="com.bab.challenge.android.LoginTests"/>
+        </classes>
+    </test>
+</suite>

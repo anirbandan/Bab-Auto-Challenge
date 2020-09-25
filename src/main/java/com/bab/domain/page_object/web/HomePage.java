@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.bab.core.driver.WebDriverFactory.getDriver;
+import static com.bab.domain.helpers.AppParametersHelper.getBaseUrl;
 
 public class HomePage {
     private By signInButton = By.className("login");
@@ -15,7 +16,7 @@ public class HomePage {
     }
 
     public void openAndValidate() {
-        String baseURL = "http://automationpractice.com/index.php";
+        String baseURL = getBaseUrl();
         getDriver().get(baseURL);
         checkElementClickable(signInButton);
     }
