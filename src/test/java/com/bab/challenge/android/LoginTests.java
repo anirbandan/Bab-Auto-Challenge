@@ -5,6 +5,7 @@ import com.bab.core.base.TestListener;
 import com.bab.domain.page_object.android.AuthenticationPage;
 import com.bab.domain.page_object.android.HomePage;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -18,10 +19,17 @@ public class LoginTests extends MobileBase {
         homePage = new HomePage();
     }
 
-    @Test
-    public void loginTest() {
-        authenticationPage.enterEmailForLogin("arthur@gmail.com");
-        authenticationPage.enterPassword("98765");
+    @DataProvider(name = "data-provider")
+    public Object[][] feedTestData() {
+        String emailId = "arthur@gmail.com";
+        String password = "98765";
+        return new Object[][] {{emailId, password}};
+    }
+
+    @Test(dataProvider = "data-provider")
+    public void loginTest(String emailId, String password) {
+        authenticationPage.enterEmailForLogin(emailId);
+        authenticationPage.enterPassword(password);
         authenticationPage.submitLoginForm();
         homePage.assertHomePage();
     }

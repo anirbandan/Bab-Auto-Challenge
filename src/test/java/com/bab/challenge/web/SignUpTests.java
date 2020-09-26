@@ -6,10 +6,7 @@ import com.bab.domain.page_object.web.AccountCreationPage;
 import com.bab.domain.page_object.web.AuthenticationPage;
 import com.bab.domain.page_object.web.HomePage;
 import com.bab.domain.page_object.web.MyAccountPage;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.UUID;
 
@@ -26,11 +23,21 @@ public class SignUpTests extends WebBase {
         myAccountPage = new MyAccountPage();
     }
 
-    @Test
-    public void signUpTest() {
+    @DataProvider(name = "data-provider")
+    public Object[][] feedTestData() {
+        int testDataVariations = 1;
+        Object[][] testData = new Object[testDataVariations][1];
+        for (int instance = 0; instance < testDataVariations; instance++) {
+            testData[instance][0] = UUID.randomUUID().toString() + "@gmail.com";
+        }
+        return testData;
+    }
+
+    @Test(dataProvider = "data-provider")
+    public void signUpTest(String randomEmailId) {
         homePage.openAndValidate();
         homePage.goToAuthenticationPage();
-        authenticationPage.enterEmailForAccountCreation(UUID.randomUUID().toString() + "@gmail.com");
+        authenticationPage.enterEmailForAccountCreation(randomEmailId);
         authenticationPage.submitEmailRegistration();
         accountCreationPage.fillOutPersonalInformation("Anirban", "Dan", "testpass", "15", "2", "1995");
         accountCreationPage.fillOutAddressInformation();
