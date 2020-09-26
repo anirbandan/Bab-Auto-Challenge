@@ -3,7 +3,8 @@
 #### Selection of tool:
 In this solution I have built an automation framework using Selenium (for web automation), Appium (for mobile automation) with Java, have used maven as build tool.
 
-There is many well-known advantages of Selenium + Appium, but I have decided to use it as it serves the need of this project, and I am most comfortable with these tools as well.
+There is many well-known advantages of Selenium + Appium, but I have decided to use it as it serves the need of this project, and I am most comfortable with these tools.
+
 Other advantages are:
 - its an open source
 - huge community support is available on the internet
@@ -30,6 +31,13 @@ I have assumed the system has all the requirements to execute the testcases
 
 ## Instructions to run the tests and generate test reports
 
+### Set device capabilities in AndroidCapabilityHelper.java
+
+- PLATFORM_VERSION
+- DEVICE_NAME
+- UDID
+
+
 ### To execute the test suites
 - execute `mvn clean test` from repository root to execute all test suites 
 - execute `mvn clean test -DsuiteXmlFile=web-tests-suite.xml` from repository root to execute test suites in web folder
@@ -42,3 +50,14 @@ Possible permitted values for parameter suiteXmlFile are:
 
 ### To generate allure test report
 - execute `allure serve allure-results` from repository root to generate test report
+
+
+### Conclusion
+
+I have tried to implement the basic requirements for an automation test framework which can be easily extended and also have tried to keep things configurable.
+Still there are many improvements can be done in this project, the things which comes to mind are:
+- make application capabilities configurable and pass via config file
+- feed test data in the test cases using external files
+- page object implementations can be improved by using separate method for each action
+
+Thank you.
