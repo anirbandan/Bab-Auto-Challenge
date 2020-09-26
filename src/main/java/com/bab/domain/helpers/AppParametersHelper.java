@@ -14,4 +14,9 @@ public class AppParametersHelper {
         String baseUrl = "baseUrl";
         return System.getProperty(baseUrl, getPathFromAppConfig(baseUrl));
     }
+
+    public static Boolean isHeadLess() {
+        String headLess = "headLess";
+        return Boolean.valueOf(System.getProperty(headLess, getPathFromAppConfig(headLess)));
+    }
 }
