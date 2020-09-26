@@ -12,7 +12,7 @@ public class AndroidCapabilityHelper {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"device");
         capabilities.setCapability(MobileCapabilityType.UDID,"emulator-5554");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"60");
-        capabilities.setCapability(MobileCapabilityType.APP,"/Users/adan/Documents/Personal/Work/Bab-Auto/src/test/resources/apps/app-debug.apk");
+        capabilities.setCapability(MobileCapabilityType.APP,"src/test/resources/apps/app-debug.apk");
         return capabilities;
     }
 }
